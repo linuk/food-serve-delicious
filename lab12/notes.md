@@ -2,4 +2,4 @@
 
 ## module names
 
-If rename the app `datetime.py`, the `import` will import itself.
+Renaming the app `datetime.py` the `import` will import itself.
