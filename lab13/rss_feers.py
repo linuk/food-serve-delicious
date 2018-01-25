@@ -19,7 +19,7 @@ def headlines():
     # Fetch articles from the feeds
     articles = feed['entries']
 
-    title = request.args.get('title')
+    title = request.args.get('title') or ''
 
     # search the article title
     articles = [a for a in articles if title.lower() in a.title.lower()]
