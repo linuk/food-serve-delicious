@@ -2,6 +2,8 @@ import pymysql
 from flask import Flask, render_template
 from databaseConfigs import mysqlDatabase, mysqlHost, mysqlPasssword, mysqlUsername
 
+app = Flask(__name__)
+
 
 class DBHelper:
 
@@ -20,13 +22,9 @@ class DBHelper:
             return cursor.fetchall()
 
 
-dbHelper = DBHelper()
-app = Flask(__name__)
-
-
 @app.route('/')
 def index():
-
+    dbHelper = DBHelper()
     twits = dbHelper.get_all_twits()
     page_title = 'Read Twits from MySql Database'
     body_title = page_title
