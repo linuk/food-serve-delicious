@@ -27,13 +27,13 @@ class DBHelper:
         if type == 'all':
             return cursor.fetchall()
         if type == 'storage':
-            return True
+            return self.db.commit()
 
         self.db.close()
 
     def get_all_twits(self, user_id):
-        query = 'SELECT t.twit, t.created_at FROM twits t WHERE t.user_id = "%s" ORDER BY t.created_at ASC' % escape(user_id)
-        print(query)
+        query = 'SELECT t.twit, t.created_at FROM twits t WHERE t.user_id = "%s" ORDER BY t.created_at ASC' % escape(
+            user_id)
         return self.execute(query, 'all')
 
     # return user_id as the first element in the result tuple
@@ -44,5 +44,4 @@ class DBHelper:
 
     def add_user(self, username, password):
         query = 'INSERT INTO users (username, password) VALUES ("%s", "%s")' % (escape(username), escape(password))
-        print(query)
         return self.execute(query, 'storage')

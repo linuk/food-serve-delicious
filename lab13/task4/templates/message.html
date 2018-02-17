@@ -1,0 +1,19 @@
+{% if messages %}
+    <article class="message is-info" style="position: fixed; bottom: 0; left: 0; width: 100vw;">
+        <div class="message-body">
+            <ul>
+                {% for m in messages %}
+                    <li>{{ m }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </article>
+{% endif %}
+
+{% if error %}
+    <article class="message is-danger" style="position: fixed; bottom: 0; left: 0; width: 100vw;">
+        <div class="message-body">
+            {{ error }}
+        </div>
+    </article>
+{% endif %}

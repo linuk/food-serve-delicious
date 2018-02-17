@@ -36,11 +36,9 @@ def login():
     form_title = 'Login'
 
     if form.validate_on_submit() and request.method == 'POST':
-        print("login request")
         username = request.form['username']
         password = request.form['password']
         result = dbhelper.get_user_id_by_username_and_password(username, password)
-        print(result)
         if result is not None:
             session['username'] = request.form['username']
             session['user_id'] = result[0]
@@ -56,10 +54,14 @@ def signUp():
     form = signUpForm()
 
     if form.validate_on_submit() and request.method == 'POST':
-        print("signup request")
+
+        # Insert user data
         username = request.form['username']
         password = request.form['password']
-        result = dbhelper.add_user(username, password)
+        dbhelper.add_user(username, password)
+
+        # Pull user data
+        result = dbhelper.get_user_id_by_username_and_password(username, password)
         if result is not None:
             session['username'] = username
             session['user_id'] = dbhelper.get_user_id_by_username_and_password(username, password)[0]
