@@ -10,7 +10,7 @@
 - [x] Task 2: mocking up a login form using POST
 - [x] Task 3: uploading files
 - [x] Task 4: flask-wtforms extension
-- [ ] Task 5: extension task, apply wtforms to file uploads
+- [x] Task 5: extension task, apply wtforms to file uploads
 
 ## [Lab 14](https://github.com/danmcquillan/dnw-flask/wiki/lab-14)
 
