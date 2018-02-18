@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    <h1 class="title has-text-centered">Twits</h1>
+    <h2 class="subtitle has-text-centered">
+        <a href={{ mongo_url }}>Mongo</a>
+        |
+        <a href={{ mysql_url }}>MySQL</a>
+    </h2>
+
+
+    <div class="columns is-multiline">
+
+        {#  For mongo  #}
+        {% if type == 'mongo' %}
+            {% for t in twits %}
+                <div class="column is-4 is-offset-4">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="title is-4 is-capitalized">{{ t.username }}</p>
+                                </div>
+                            </div>
+
+                            <div class="content">
+                                {{ t.twit }}
+                                <p><time class="has-text-grey-light">{{ t.created_at }}</time></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {#  For MySQL  #}
+        {% if type == 'mysql' %}
+            {% for t in twits %}
+                <div class="column is-4 is-offset-4">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="title is-4 is-capitalized">{{ t[0] }}</p>
+                                </div>
+                            </div>
+
+                            <div class="content">
+                                {{ t[1] }}
+                                <p><time class="has-text-grey-light">{{ t[2] }}</time></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="column is-4 is-offset-4">
+            {% include 'add_twit_form.html' %}
+        </div>
+
+    </div>
+
+{% endblock %}

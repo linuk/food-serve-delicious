@@ -21,7 +21,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    page_title = "Twits From Mongo"
+    page_title = "Twits FromMongo"
     body_title = page_title
 
     dbHelper = DBHelper()

@@ -15,9 +15,9 @@
 ## [Lab 14](https://github.com/danmcquillan/dnw-flask/wiki/lab-14)
 
 - [x] Task 1: display the twits
-- [ ] Task 2: adding twits
-- [ ] Task 3: adding twits using a flask-wtf form
-- [ ] Task 4: extension
+- [x] Task 2: adding twits
+- [x] Task 3: adding twits using a flask-wtf form
+- [x] Task 4: edit and delete twit
 
 ## [Lab 15](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-15)
 
