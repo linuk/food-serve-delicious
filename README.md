@@ -25,3 +25,8 @@
 - [ ] [Task 2: restrict access based on logged-in status](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-15#task-2-restrict-access-based-on-logged-in-status)
 - [ ] [Task 3: use flask-login](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-15#task-3-use-flask-login)
 - [ ] [Task 4: hashing passwords](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-15#task-4-hashing-passwords)
+
+## [Lab 17](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-17)
+- [ ] [Task 0: consuming apis](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-17#step-0-consuming-apis)
+- [ ] [Task 1: creating a simple json api](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-17#step-1-simple-api)
+- [ ] Task 2: using flask-restful to create an api
