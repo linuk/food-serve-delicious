@@ -21,12 +21,24 @@
 
 ## [Lab 15](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-15)
 
-- [X] [Task 1: simple login](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-15#task-1-simple-login)
-- [ ] [Task 2: restrict access based on logged-in status](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-15#task-2-restrict-access-based-on-logged-in-status)
-- [ ] [Task 3: use flask-login](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-15#task-3-use-flask-login)
-- [ ] [Task 4: hashing passwords](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-15#task-4-hashing-passwords)
+- [x] [Task 1: simple login](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-15#task-1-simple-login)
+- [x] [Task 2: restrict access based on logged-in status](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-15#task-2-restrict-access-based-on-logged-in-status)
+- [x] [Task 3: use flask-login](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-15#task-3-use-flask-login)
+- [x] [Task 4: hashing passwords](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-15#task-4-hashing-passwords)
 
 ## [Lab 17](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-17)
+
 - [ ] [Task 0: consuming apis](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-17#step-0-consuming-apis)
 - [ ] [Task 1: creating a simple json api](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-17#step-1-simple-api)
-- [ ] Task 2: using flask-restful to create an api
+- [ ] [Task 2: using flask-restful to create an api](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-17#step-2-using-flask-restful)
+
+## [Lab 18](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-18)
+
+- [ ] Task: flask-sqlalchemy
+
+## [Lab 20](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-20)
+
+- [ ] [Task 1: twits_blueprint](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-20#step-1-twits_blueprint)
+- [ ] [Task 2: login_blueprint](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-20#step-2-login_blueprint)
+- [ ] [Task 3: extension](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-20#step-3-extension)
+- [ ] [Task 4: homework](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-20#step-4-homework)
