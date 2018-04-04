@@ -28,9 +28,9 @@
 
 ## [Lab 17](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-17)
 
-- [ ] [Task 0: consuming apis](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-17#step-0-consuming-apis)
-- [ ] [Task 1: creating a simple json api](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-17#step-1-simple-api)
-- [ ] [Task 2: using flask-restful to create an api](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-17#step-2-using-flask-restful)
+- [x] [Task 0: consuming apis](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-17#step-0-consuming-apis)
+- [x] [Task 1: creating a simple json api](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-17#step-1-simple-api)
+- [x] [Task 2: using flask-restful to create an api](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-17#step-2-using-flask-restful)
 
 ## [Lab 18](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-18)
 
