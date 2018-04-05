@@ -34,7 +34,7 @@
 
 ## [Lab 18](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-18)
 
-- [ ] Task: flask-sqlalchemy
+- [x] Task: flask-sqlalchemy
 
 ## [Lab 20](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-20)
 
