@@ -7,7 +7,7 @@
 ## [Lab 13](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-13)
 
 - [x] Task 1: adapting headlines for user input via GET
-- [x] Task 2: mocking up a login form using POST
+- [x] Task 2: mocking up a login_blueprint form using POST
 - [x] Task 3: uploading files
 - [x] Task 4: flask-wtforms extension
 - [x] Task 5: extension task, apply wtforms to file uploads
@@ -38,7 +38,6 @@
 
 ## [Lab 20](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-20)
 
-- [ ] [Task 1: twits_blueprint](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-20#step-1-twits_blueprint)
-- [ ] [Task 2: login_blueprint](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-20#step-2-login_blueprint)
-- [ ] [Task 3: extension](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-20#step-3-extension)
-- [ ] [Task 4: homework](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-20#step-4-homework)
+- [x] [Task 1: twits_blueprint](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-20#step-1-twits_blueprint)
+- [x] [Task 2: login_blueprint](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-20#step-2-login_blueprint)
+- [x] [Task 3: extension](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-20#step-3-extension)
