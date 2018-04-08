@@ -1,0 +1,5 @@
+mysqlHost = 'localhost'
+mysqlUsername = 'mytwits_user'
+mysqlPasssword = 'mytwits_password'
+mysqlDatabase = 'mytwits'
+app_secret_key = 'asdlihasldigqwelkjasldih laishdl'

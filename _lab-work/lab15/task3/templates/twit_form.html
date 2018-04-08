@@ -1,0 +1,18 @@
+<form method="post">
+    {{form.csrf_token}}
+    <div class="field has-addons">
+        <div class="control is-expanded">
+            {% if value is defined %}
+              {{ form.twit(class='input', placeholder='Enter a twit', value=value) }}
+            {% else %}
+              {{ form.twit(class='input', placeholder='Enter a twit', value="") }}
+            {% endif %}
+            {% if form.twit.errors %}
+                <p class="help is-danger">{{ form.twit.errors[0] }}</p>
+            {% endif %}
+        </div>
+        <div class="control has-text-centered">
+            {{ form.submit(value="twit", class='button is-white is-outlined') }}
+        </div>
+    </div>
+</form>
