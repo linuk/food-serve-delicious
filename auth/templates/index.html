@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    <h1 class="title">
+        Food, Serve, Delicious
+    </h1>
+    <h2 class="subtitle">
+        Cook and make new friends!
+    </h2>
+    {% for cta in ctas %}
+        <a href="{{ cta.url }}" class="is-inverted is-primary is-outlined button">{{ cta.text }}</a>
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    <h1 class="title">Let's find meals near you!</h1>
+    <div class="column is-12">
+        <form method="post">
+            {{ form.csrf_token }}
+            <div class="field has-addons">
+                <div class="control is-expanded">
+                    {{ form.postcode(class='input', placeholder='Search post code here', autofocus='true') }}
+                </div>
+                <div class="control">
+                    {{ form.submit(value='SEARCH',class='button') }}
+                </div>
+            </div>
+        </form>
+
+
+        {% if is_search %}
+            <div class="column is-12">
+                {% if meals | length > 0 %}
+                    <ul>
+                        {% for meal in meals %}
+                            <li>meal.name</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <h2 class="subtitle">no search result of {{ searched_postcode }}:(</h2>
+                {% endif %}
+            </div>
+        {% endif %}
+
+    </div>
+
+
+
+{% endblock %}

@@ -7,7 +7,7 @@
 ## [Lab 13](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-13)
 
 - [x] Task 1: adapting headlines for user input via GET
-- [x] Task 2: mocking up a login_blueprint form using POST
+- [x] Task 2: mocking up a login form using POST
 - [x] Task 3: uploading files
 - [x] Task 4: flask-wtforms extension
 - [x] Task 5: extension task, apply wtforms to file uploads
