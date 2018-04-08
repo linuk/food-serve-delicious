@@ -1,9 +1,0 @@
-{% extends 'layout.html' %}
-
-{% block body %}
-    <h1>{{ body_title }}</h1>
-    {% for twit in twits %}
-        <h2>{{ twit[0] }}</h2>
-        <p>{{ twit[1] }}</p>
-    {% endfor %}
-{% endblock %}
