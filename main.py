@@ -1,17 +1,22 @@
 from flask import Flask
-from credientials import APP_SECRET_KEY, SQLALCHEMY_DATABASE_URI
+from credentials import APP_SECRET_KEY, SQLALCHEMY_DATABASE_URI, GOOGLE_MAP_API_KEY
 from flask_restful import Api
-from models import db, Users
+from models import db
 from APIs import UserAPI, MealsAPI, ReservationsAPI, api_route
 from auth.auth_blueprint import auth_blueprint
 from meals.meals_blueprint import meals_blueprint
+from flask_googlemaps import GoogleMaps
 
 app = Flask(__name__)
 app.secret_key = APP_SECRET_KEY
 app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 app.register_blueprint(auth_blueprint)
 app.register_blueprint(meals_blueprint)
+
+GoogleMaps(app, key=GOOGLE_MAP_API_KEY)
+
 db.init_app(app)
 
 api = Api(app)

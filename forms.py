@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, DateTimeField, DateField, validators, FileField, SubmitField, \
+from wtforms import StringField, PasswordField, TextAreaField, DateField, validators,DateTimeField, FileField, SubmitField, \
     IntegerField, FloatField
 
 
@@ -20,14 +20,16 @@ class UserLoginForm(FlaskForm):
 
 class MealInfoForm(FlaskForm):
     name = StringField('name', validators=[validators.DataRequired()])
-    description = StringField('description', validators=[validators.DataRequired()])
-    image = FileField('image')
+    description = TextAreaField('description')
+    # image = FileField('image')
     guest_num = IntegerField('guest_num', validators=[validators.DataRequired(), validators.number_range(0)])
-    time = DateField('time', validators=[validators.DataRequired()])
+    date = StringField('date', validators=[validators.DataRequired()])
+    time = StringField('time', validators=[validators.DataRequired()])
     price = FloatField('price', validators=[validators.DataRequired()])
-    lat = FloatField('lat', validators=[validators.DataRequired()])
-    lng = FloatField('lng', validators=[validators.DataRequired()])
-    user_id = IntegerField('user_id', validators=[validators.DataRequired(), validators.number_range(0)])
+    postcode = StringField('postcode', validators=[validators.DataRequired()])
+    # lat = FloatField('lat', validators=[validators.DataRequired()])
+    # lng = FloatField('lng', validators=[validators.DataRequired()])
+    # user_id = IntegerField('user_id', validators=[validators.DataRequired(), validators.number_range(0)])
     submit = SubmitField('submit', validators=[validators.DataRequired()])
 
 

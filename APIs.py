@@ -2,9 +2,12 @@ from flask_restful import Resource, fields, marshal_with, reqparse
 from models import db, Users, Meals, Reservations
 from passwordhelper import PasswordHelper
 from datetime import datetime
+import urllib3
+import json
 
 ph = PasswordHelper()
 api_route_base = '/api/v1/'
+postcode_api_url = 'https://api.postcodes.io/postcodes/'
 
 
 class UserAPI(Resource):
@@ -170,3 +173,10 @@ class ReservationsAPI(Resource):
 # Customised functions
 def api_route(endpoint: str):
     return api_route_base + endpoint
+
+
+def fetch_postcode(postcode):
+    """Fetch postcode details, reference: https://postcodes.io"""
+    http = urllib3.PoolManager()
+    res = http.request('GET', postcode_api_url + postcode)
+    return [res.status, json.loads(res.data.decode("utf-8"))]

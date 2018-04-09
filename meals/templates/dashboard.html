@@ -2,7 +2,7 @@
 
 {% block body %}
 
-    <h1 class="title">Let's find meals near you!</h1>
+    <h1 class="title">Find Meals near you!</h1>
     <div class="column is-12">
         <form method="post">
             {{ form.csrf_token }}
@@ -17,7 +17,13 @@
         </form>
 
 
+
         {% if is_search %}
+
+            <div class="column is-12">
+                {{ trdmap.html }}
+            </div>
+
             <div class="column is-12">
                 {% if meals | length > 0 %}
                     <ul>
@@ -35,4 +41,14 @@
 
 
 
+{% endblock %}
+
+{% block javascript_footer %}
+    <script>
+        document.querySelector('#trdmap').style.width = '100%';
+    </script>
+{% endblock %}
+
+{% block javascript_header %}
+    {{ trdmap.js }}
 {% endblock %}
