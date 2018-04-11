@@ -1,0 +1,86 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <h1 class="title">Edit Meal</h1>
+    <div class="column is-one-third is-offset-one-third">
+        <div class="control">
+            <form method="post">
+                {{ form.csrf_token }}
+                <div class="field">
+                    {{ form.name(class='input', placeholder='name', autofocus='true', value=meal.name) }}
+                    {% if form.name.errors %}
+                        {% for error in form.name.errors %}
+                            <p class="help">{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="field">
+                    {{ form.description(class='textarea is-primary', placeholder='description', value=meal.description) }}
+                    {% if form.description.errors %}
+                        {% for error in form.description.errors %}
+                            <p class="help">{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="field">
+                    {{ form.postcode(class='input', placeholder='postcode', value=meal.postcode) }}
+                    {% if form.postcode.errors %}
+                        {% for error in form.postcode.errors %}
+                            <p class="help">{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="field">
+                    {{ form.guest_num(class='input is-primary', placeholder='How many guest?', type='number', min=1, value=meal.guest_num) }}
+                    {% if form.guest_num.errors %}
+                        {% for error in form.guest_num.errors %}
+                            <p class="help">{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="field">
+                    {{ form.date(class='input', placeholder='time', type="date", value=meal.date) }}
+                    {% if form.time.errors %}
+                        {% for error in form.time.errors %}
+                            <p class="help">{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="field">
+                    {{ form.time(class='input', placeholder='time', type="time", value=meal.time) }}
+                    {% if form.time.errors %}
+                        {% for error in form.time.errors %}
+                            <p class="help">{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="field">
+                    {{ form.price(class='input is-primary', placeholder='price', type='number', value=meal.price) }}
+                    {% if form.price.errors %}
+                        {% for error in form.price.errors %}
+                            <p class="help">{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="field is-grouped is-grouped-centered">
+                    <p class="control">
+                        {{ form.submit(class='is-inverted is-primary is-outlined button', value='EDIT') }}
+                    </p>
+                    <p class="control">
+                        <a href="{{ url_for_delete }}?meal_id={{ meal.id }}" class='is-danger button'> DELETE</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascript_header %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages or error %}
+            <script>alert("{{ messages[0] }}")
+            </script>
+        {% endif %}
+    {% endwith %}
+{% endblock %}

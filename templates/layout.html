@@ -11,14 +11,23 @@
 <section class="hero is-primary is-fullheight is-bold">
 
     <div class="hero-head">
-        <nav class="navbar">
-            <div class="container">
-                <div class="navbar-menu">
-                    <div class="navbar-end">
-                        {% for btn in buttons %}
-                            <a class="navbar-item" href={{ btn.url }}>{{ btn.text }}</a>
-                        {% endfor %}
-                    </div>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="{{ url_for_index }}">
+                    Food Serve Delicious
+                </a>
+
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+            <div class="navbar-menu">
+                <div class="navbar-end">
+                    {% for btn in buttons %}
+                        <a class="navbar-item" href={{ btn.url }}>{{ btn.text }}</a>
+                    {% endfor %}
                 </div>
             </div>
         </nav>
@@ -32,5 +41,11 @@
 
 </section>
 </body>
-    {% block javascript_footer %}{% endblock %}
+{% block javascript_footer %}{% endblock %}
+
+<script>
+    document.querySelector('.navbar-burger').addEventListener('click', function () {
+        document.querySelector('.navbar-menu').classList.toggle('is-active');
+    });
+</script>
 </html>

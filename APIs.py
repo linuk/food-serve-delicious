@@ -175,8 +175,10 @@ def api_route(endpoint: str):
     return api_route_base + endpoint
 
 
-def fetch_postcode(postcode):
+def fetch_postcode(postcode: str):
     """Fetch postcode details, reference: https://postcodes.io"""
     http = urllib3.PoolManager()
+    if type(postcode) is not str:
+        return [None, None]
     res = http.request('GET', postcode_api_url + postcode)
     return [res.status, json.loads(res.data.decode("utf-8"))]

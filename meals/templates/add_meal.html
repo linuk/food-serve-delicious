@@ -31,7 +31,7 @@
                     {% endif %}
                 </div>
                 <div class="field">
-                    {{ form.guest_num(class='input is-primary', placeholder='How many guest?', type='number') }}
+                    {{ form.guest_num(class='input is-primary', placeholder='How many guest?', type='number', min=1) }}
                     {% if form.guest_num.errors %}
                         {% for error in form.guest_num.errors %}
                             <p class="help">{{ error }}</p>
@@ -46,7 +46,7 @@
                         {% endfor %}
                     {% endif %}
                 </div>
-              <div class="field">
+                <div class="field">
                     {{ form.time(class='input', placeholder='time', type="time") }}
                     {% if form.time.errors %}
                         {% for error in form.time.errors %}
@@ -69,4 +69,13 @@
         </div>
     </div>
 
+{% endblock %}
+
+{% block javascript_header %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages or error %}
+            <script>alert("{{ messages[0] }}")
+            </script>
+        {% endif %}
+    {% endwith %}
 {% endblock %}

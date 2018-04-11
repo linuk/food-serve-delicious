@@ -1,0 +1,43 @@
+<div class="card" id="meal{{ meal.id }}">
+    <div class="card-content">
+        <p class="title" style="color: rgba(0,0,0, 0.9)">
+            {{ meal.name }}
+        </p>
+        <p class="subtitle" style="color: rgba(0,0,0, 0.8)">
+            {{ meal.description }}
+            @{{ meal.host }}
+        </p>
+        <hr>
+        <ul>
+            <li>RSVPs: <b>{{ meal.rsvp_num }}/{{ meal.guest_num }}</b></li>
+            <li>Postcode: <a href='{{ url_for_dashboar }}?postcode={{ meal.postcode }}'>
+                <b>{{ meal.postcode }}</b></a>
+            </li>
+            <li>
+                <time datetime="2016-1-1"><b>{{ meal.time }} / {{ meal.date }}</b></time>
+            </li>
+        </ul>
+
+    </div>
+    <div class="card-footer">
+        <p class="card-footer-item">
+            {% if meal.rsvp_num >= meal.guest_num %}
+                <a class="is-rounded button" disabled aria-disabled="true">FULL RESERVED</a>
+            {% elif meal.isReserved %}
+                <a class="is-rounded button is-danger"
+                   href='{{ url_for_cancel }}?user_id={{ user_id }}&meal_id={{ meal.id }}&redirect={{ url_for_redirect }}'>CANCEL</a>
+            {% else %}
+                <a class="is-rounded button is-primary"
+                   href='{{ url_for_rsvp }}?user_id={{ user_id }}&meal_id={{ meal.id }}&redirect={{ url_for_redirect }}'>RSVP</a>
+            {% endif %}
+        </p>
+
+        {% if meal.isEditable %}
+            <p class="card-footer-item">
+                <a class="is-rounded button is-info" aria-disabled="true"
+                   href='{{ url_for_edit }}?meal_id={{ meal.id }}&user_id={{ user_id }}&redirect={{ url_for_redirect }}'>EDIT</a>
+            </p>
+        {% endif %}
+
+    </div>
+</div>
