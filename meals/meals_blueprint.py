@@ -2,12 +2,12 @@ from flask import Blueprint, request, redirect, url_for, render_template, flash
 from flask_login import login_required, current_user
 from forms import DashboardSearchForm, MealInfoForm
 from models import db, Meals, Reservations, Users
-from flask_googlemaps import Map, icons
+from flask_googlemaps import Map
 from APIs import fetch_postcode
 from math import radians, cos, sin, asin, sqrt
 
 meals_blueprint = Blueprint('meals_blueprint', __name__, template_folder='templates')
-DEFAULT_DISTANCE_IN_KM = 5
+DEFAULT_DISTANCE_IN_KM = 4
 
 
 @meals_blueprint.route('/dashboard', methods=['GET'])
@@ -43,7 +43,7 @@ def dashboard():
                                                                guest_id=current_user.id).first() is not None
                 meal.host = Users.query.filter_by(id=meal.user_id).first().username
                 meal.rsvp_num = Reservations.query.filter_by(meal_id=meal.id).count()
-                meal.isEditable = Meals.query.filter_by(id=meal.id, user_id=current_user.id).first() is not None
+                meal.isHost = Meals.query.filter_by(id=meal.id, user_id=current_user.id).first() is not None
 
             all_meals = list(filter(lambda m: m.distance < DEFAULT_DISTANCE_IN_KM, all_meals))
             markers = [{
@@ -59,7 +59,13 @@ def dashboard():
                 varname="trdmap",
                 lat=lat,
                 lng=lng,
-                markers=markers
+                markers=markers,
+                fit_markers_to_bounds=True,
+                streetview_control=False,
+                fullscreen_control=False,
+                maptype_control=False,
+                region='UK',
+                style='display: block; position: relative; overflow: hidden;width:100%;height:40vh',
             )
 
     return render_template('dashboard.html',
@@ -148,8 +154,13 @@ def edit_meal():
 def delete_meal():
     user_id = request.args.get('user_id')
     meal_id = request.args.get('meal_id')
-    # db.session.deleteAll(Reservations.query.filter_by(meal_id=meal_id).all())
-    # TODO: delete all reservation which has meal_id = meal_id
+
+    # Delete all reservations associated with that meal
+    reservations = Reservations.query.filter_by(meal_id=meal_id).all()
+    for res in reservations:
+        db.session.delete(res)
+
+    # Delete the meal
     db.session.delete(Meals.query.filter_by(user_id=user_id, id=meal_id).first())
     db.session.commit()
     return redirect(url_for('meals_blueprint.dashboard'))

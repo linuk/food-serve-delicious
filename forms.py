@@ -1,6 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, TextAreaField, DateField, validators,DateTimeField, FileField, SubmitField, \
-    IntegerField, FloatField
+from wtforms import StringField, PasswordField, TextAreaField, validators, SubmitField, IntegerField, FloatField
 
 
 class UserInfoForm(FlaskForm):
@@ -23,13 +22,10 @@ class MealInfoForm(FlaskForm):
     description = TextAreaField('description')
     # image = FileField('image')
     guest_num = IntegerField('guest_num', validators=[validators.DataRequired(), validators.number_range(0)])
-    date = StringField('date', validators=[validators.DataRequired()])
+    date = StringField('date', validators=[validators.DataRequired(), validators])
     time = StringField('time', validators=[validators.DataRequired()])
     price = FloatField('price', validators=[validators.DataRequired()])
     postcode = StringField('postcode', validators=[validators.DataRequired()])
-    # lat = FloatField('lat', validators=[validators.DataRequired()])
-    # lng = FloatField('lng', validators=[validators.DataRequired()])
-    # user_id = IntegerField('user_id', validators=[validators.DataRequired(), validators.number_range(0)])
     submit = SubmitField('submit', validators=[validators.DataRequired()])
 
 

@@ -55,7 +55,7 @@
                     {% endif %}
                 </div>
                 <div class="field">
-                    {{ form.price(class='input is-primary', placeholder='price', type='number') }}
+                    {{ form.price(class='input is-primary', placeholder='price',min=0, type='number') }}
                     {% if form.price.errors %}
                         {% for error in form.price.errors %}
                             <p class="help">{{ error }}</p>
@@ -78,4 +78,15 @@
             </script>
         {% endif %}
     {% endwith %}
+{% endblock %}
+
+{% block javascript_footer %}
+    <script>
+        const dd = new Date().getDate();
+        const mm = new Date().getMonth() + 1;
+        const yy = new Date().getFullYear();
+        document.querySelector('input[type="date"]').min = (yy + 1) + '-' + mm + '-' + dd;
+        document.querySelector('input[type="date"]').max = yy + '-' + mm + '-' + dd;
+
+    </script>
 {% endblock %}

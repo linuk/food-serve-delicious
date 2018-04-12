@@ -8,8 +8,16 @@
     <h2 class="subtitle">
         Cook and make new friends!
     </h2>
-    {% for cta in ctas %}
-        <a href="{{ cta.url }}" class="is-inverted is-primary is-outlined button">{{ cta.text }}</a>
-    {% endfor %}
+
+    {% if ctas|length>0 %}
+        <div class="field is-grouped" style="justify-content:center;">
+            {% for cta in ctas %}
+                <p class="control">
+                    <a href="{{ cta.url }}"
+                       class="is-inverted is-primary is-outlined button is-rounded">{{ cta.text }}</a>
+                </p>
+            {% endfor %}
+        </div>
+    {% endif %}
 
 {% endblock %}

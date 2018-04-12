@@ -25,9 +25,9 @@ def index():
         {'text': 'Sign Up', 'url': url_for('auth_blueprint.register')},
         {'text': 'Sign In', 'url': url_for('auth_blueprint.login')}
     ]
-    if current_user.id:
+    if current_user.get_id() is not None:
         return redirect(url_for('meals_blueprint.dashboard'))
-    return render_template('index.html', ctas=ctas, url_for_index=url_for('meals_blueprint.dashboard'))
+    return render_template('index.html', ctas=ctas, url_for_index=url_for('auth_blueprint.index'))
 
 
 @auth_blueprint.route('/login', methods=['GET', 'POST'])
@@ -42,7 +42,7 @@ def login():
             login_user(user)
             return redirect(url_for('meals_blueprint.dashboard'))
 
-    return render_template('login.html', form=form, url_for_index=url_for('meals_blueprint.dashboard'))
+    return render_template('login.html', form=form, url_for_index=url_for('auth_blueprint.index'))
 
 
 @auth_blueprint.route('/register', methods=['GET', 'POST'])
@@ -64,11 +64,11 @@ def register():
             login_user(user)
             return redirect(url_for('meals_blueprint.dashboard'))
 
-    return render_template('register.html', form=form, url_for_index=url_for('meals_blueprint.dashboard'))
+    return render_template('register.html', form=form, url_for_index=url_for('auth_blueprint.index'))
 
 
 @auth_blueprint.route('/logout')
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('auth_blueprint.index'), url_for_index=url_for('meals_blueprint.dashboard'))
+    return redirect(url_for('auth_blueprint.index'))

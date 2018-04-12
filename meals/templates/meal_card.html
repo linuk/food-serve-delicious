@@ -5,12 +5,12 @@
         </p>
         <p class="subtitle" style="color: rgba(0,0,0, 0.8)">
             {{ meal.description }}
-            @{{ meal.host }}
+            <span class="has-text-grey">@{{ meal.host }}</span>
         </p>
         <hr>
         <ul>
             <li>RSVPs: <b>{{ meal.rsvp_num }}/{{ meal.guest_num }}</b></li>
-            <li>Postcode: <a href='{{ url_for_dashboar }}?postcode={{ meal.postcode }}'>
+            <li>Postcode: <a href='{{ url_for_dashboard }}?postcode={{ meal.postcode }}'>
                 <b>{{ meal.postcode }}</b></a>
             </li>
             <li>
@@ -20,24 +20,26 @@
 
     </div>
     <div class="card-footer">
-        <p class="card-footer-item">
-            {% if meal.rsvp_num >= meal.guest_num %}
-                <a class="is-rounded button" disabled aria-disabled="true">FULL RESERVED</a>
-            {% elif meal.isReserved %}
-                <a class="is-rounded button is-danger"
-                   href='{{ url_for_cancel }}?user_id={{ user_id }}&meal_id={{ meal.id }}&redirect={{ url_for_redirect }}'>CANCEL</a>
-            {% else %}
-                <a class="is-rounded button is-primary"
-                   href='{{ url_for_rsvp }}?user_id={{ user_id }}&meal_id={{ meal.id }}&redirect={{ url_for_redirect }}'>RSVP</a>
-            {% endif %}
-        </p>
 
-        {% if meal.isEditable %}
+        {% if meal.isHost %}
             <p class="card-footer-item">
                 <a class="is-rounded button is-info" aria-disabled="true"
                    href='{{ url_for_edit }}?meal_id={{ meal.id }}&user_id={{ user_id }}&redirect={{ url_for_redirect }}'>EDIT</a>
             </p>
+        {% else %}
+            <p class="card-footer-item">
+                {% if meal.rsvp_num >= meal.guest_num %}
+                    <a class="is-rounded button" disabled aria-disabled="true">FULL RESERVED</a>
+                {% elif meal.isReserved %}
+                    <a class="is-rounded button is-danger"
+                       href='{{ url_for_cancel }}?user_id={{ user_id }}&meal_id={{ meal.id }}&redirect={{ url_for_redirect }}'>CANCEL</a>
+                {% else %}
+                    <a class="is-rounded button is-primary"
+                       href='{{ url_for_rsvp }}?user_id={{ user_id }}&meal_id={{ meal.id }}&redirect={{ url_for_redirect }}'>RSVP</a>
+                {% endif %}
+            </p>
         {% endif %}
+
 
     </div>
 </div>

@@ -77,9 +77,11 @@ class MealsAPI(Resource):
         'id': fields.Integer,
         'name': fields.String,
         'description': fields.String,
-        'image': fields.String,
+        # 'image': fields.String,
         'guest_num': fields.Integer,
         'time': fields.DateTime,
+        'date': fields.DateTime,
+        'postcode': fields.String,
         'price': fields.Float,
         'lat': fields.Float,
         'lng': fields.Float,
@@ -88,12 +90,15 @@ class MealsAPI(Resource):
     parser = reqparse.RequestParser()
     parser.add_argument('name', type=str, help='name must be a string.')
     parser.add_argument('description', type=str, help='description must be a string.')
-    parser.add_argument('image', type=str, help='image must be a string.')
+    # parser.add_argument('image', type=str, help='image must be a string.')
     parser.add_argument('guest_num', type=int, help='guest_num must be an integer.')
     parser.add_argument('time', type=datetime, help='time must be a datetime.')
+    parser.add_argument('date', type=datetime, help='time must be a datetime.')
     parser.add_argument('price', type=float, help='price must be a float number.')
+    parser.add_argument('postcode', type=str, help='postcode must be a string.')
     parser.add_argument('lat', type=float, help='lat must be a float number.')
     parser.add_argument('lng', type=float, help='lng must be a float number.')
+    parser.add_argument('user_id', type=int, help='user_id must be an integer.')
 
     @marshal_with(resource_fields)
     def get(self, meal_id=None):
@@ -105,10 +110,13 @@ class MealsAPI(Resource):
         args = self.parser.parse_args()
         db.session.add(Meals(name=args['name'],
                              description=args['description'],
-                             image=args['image'],
+                             # image=args['image'],
                              guest_num=args['guest_num'],
+                             date=args['date'],
                              time=args['time'],
+                             postcode=args['postcode'],
                              price=args['price'],
+                             user_id=args['user_id'],
                              lat=args['lat'],
                              lng=args['lng']))
         db.session.commit()
@@ -119,12 +127,15 @@ class MealsAPI(Resource):
         meal = Meals.query.filter_by(id=meal_id).first()
         meal.name = args['name']
         meal.description = args['description']
-        meal.image = args['image']
+        # meal.image = args['image']
         meal.guest_num = args['guest_num']
+        meal.date = args['date']
         meal.time = args['time']
         meal.price = args['price']
+        meal.postcode = args['postcode']
         meal.lat = args['lat']
         meal.lng = args['lng']
+        meal.user_id = args['user_id']
         db.session.commit()
         return True
 

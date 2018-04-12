@@ -4,51 +4,41 @@
 
     <h1 class="title">Find Meals near you!</h1>
 
-    <div class="column is-12">
-    <form method="get">
-        <div class="field has-addons">
-            <div class="control is-expanded">
-                {{ form.postcode(class='input', placeholder='Search post code here', autofocus='true') }}
-            </div>
-            <div class="control">
-                {{ form.submit(value='SEARCH',class='button') }}
-            </div>
-        </div>
-    </form>
-
-
-
-    {% if is_search %}
         <div class="column is-12">
-            {{ trdmap.html }}
-        </div>
-        {% if meals | length > 0 %}
-            <h2>{{ meals|length }} search result(s).</h2>
-            <div class="columns is-multiline section">
-            {% for meal in meals %}
-                <div class="column is-6">
-                    {% include 'meal_card.html' %}
+            <form method="get">
+                <div class="field has-addons">
+                    <div class="control is-expanded">
+                        {% set value = searched_postcode or '' %}
+                        {{ form.postcode(class='input', style='text-transform: uppercase', placeholder='Search postcode here', autofocus='true', value=value) }}
+                    </div>
+                    <div class="control">
+                        {{ form.submit(value='SEARCH',class='button') }}
+                    </div>
                 </div>
-            {% endfor %}
+            </form>
+        </div>
+
+
+        {% if is_search %}
             <div class="column is-12">
+                {{ trdmap.html }}
             </div>
-        {% else %}
-            <div class="column is-12">
-                <h2 class="subtitle">Please enter a valid UK postcode :)</h2>
-            </div>
+            {% if meals | length > 0 %}
+                <h2>{{ meals|length }} result(s) near {{ searched_postcode |upper }}.</h2>
+                <div class="columns is-multiline section">
+                    {% for meal in meals %}
+                        <div class="column is-4">
+                            {% include 'meal_card.html' %}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="column is-12">
+                    <h2 class="subtitle">Please enter a valid UK postcode :)</h2>
+                </div>
+            {% endif %}
         {% endif %}
-    {% endif %}
 
-</div>
-
-
-
-{% endblock %}
-
-{% block javascript_footer %}
-    <script>
-        document.querySelector('#trdmap').style.width = '100%';
-    </script>
 {% endblock %}
 
 {% block javascript_header %}
