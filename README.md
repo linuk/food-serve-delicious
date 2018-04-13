@@ -1,8 +1,10 @@
-
 # Term 2 Assignment
 
 I built a web application call **Food Serve Delicious** which let people to host food event to public and meet new friends. After singing up a new account, the user can either host a new event or choose to attend events hosted by other users. A restful API server is hosted as well as the web app runs, other developers can use it to develop their own application.
 
+## Branches
+
+There are two branches of the source code. While the `master` branch contains the original codes, `vs_on_igor` contains helper functions to run on igor specifically.  
 
 ## Demo Accounts
 
@@ -19,6 +21,10 @@ I built a web application call **Food Serve Delicious** which let people to host
 |octopusice@gmail.com|beefown|
 |catpie@gmail.com|chipsownage|
 
+
+## Demo Events
+
+All of the demo events are hosted in South East of London, such as `SE15 6TU` or `SE16 6NA` will be a good location to search.
 
 ## Directories
 
