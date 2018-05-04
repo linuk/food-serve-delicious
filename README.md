@@ -1,10 +1,6 @@
-# Term 2 Assignment
+# Food, Serve, Delicious
 
-I built a web application call **Food Serve Delicious** which let people to host food event to public and meet new friends. After singing up a new account, the user can either host a new event or choose to attend events hosted by other users. A restful API server is hosted as well as the web app runs, other developers can use it to develop their own application.
-
-## Branches
-
-There are two branches of the source code. While the `master` branch contains the original codes, `vs_on_igor` contains helper functions to run on igor specifically.  
+This web application is named after a famous funny game [Food, Cook, Delicious], but it's nothing to do with it. This web app is mainly for practicing Flask and Python, user can use it to host food event to public and meet new friends. After singing up a new account, the user can either host a new event or choose to attend events hosted by other users. A restful API server is hosted as well as the web app runs, other developers can use it to develop their own application =).
 
 ## Demo Accounts
 
@@ -21,12 +17,13 @@ There are two branches of the source code. While the `master` branch contains th
 |octopusice@gmail.com|beefown|
 |catpie@gmail.com|chipsownage|
 
-
 ## Demo Events
 
 All of the demo events are hosted in South East of London, such as `SE15 6TU` or `SE16 6NA` will be a good location to search.
 
 ## Directories
+
+in the `/src`
 
 ```
 main.py
@@ -34,7 +31,6 @@ main.py
 |-/static           // Static files, such as images
 |-/auth             // Authentication blueprint
 |-/meal             // Meal blueprint
-|-/_lab-work
 |-APIs.py           // Restful API server
 |-crendentials.py   // Keys and other things which shouldn't be public or put on the repository
 |-dump.sql          // Demo data
@@ -42,7 +38,6 @@ main.py
 |-main.py           // main app
 |-models.py         // Models of the data
 |-passwordhelper.py // Helper functions for generate hash, salt and validate account.
-
 
 ```
 
@@ -147,49 +142,3 @@ main.py
 `POST`|`/api/v1/reservations`|Create a new reservations.
 `PUT`|`/api/v1/reservations/<reservation_id>`| Update a reservation's data.
 `DELETE`|`/api/v1/reservations/<reservation_id>`| Delete a reservation.
-
-# Lab works
-
-All the lab works are stored in the [subfolder](_lab-work). There are separated folder for each task of all my labs works source codes and the progress records below.
-
-## [Lab 12](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-12)
-
-- [x] Done
-
-## [Lab 13](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-13)
-
-- [x] Task 1: adapting headlines for user input via GET
-- [x] Task 2: mocking up a login form using POST
-- [x] Task 3: uploading files
-- [x] Task 4: flask-wtforms extension
-- [x] Task 5: extension task, apply wtforms to file uploads
-
-## [Lab 14](https://github.com/danmcquillan/dnw-flask/wiki/lab-14)
-
-- [x] Task 1: display the twits
-- [x] Task 2: adding twits
-- [x] Task 3: adding twits using a flask-wtf form
-- [x] Task 4: edit and delete twit
-
-## [Lab 15](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-15)
-
-- [x] [Task 1: simple login](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-15#task-1-simple-login)
-- [x] [Task 2: restrict access based on logged-in status](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-15#task-2-restrict-access-based-on-logged-in-status)
-- [x] [Task 3: use flask-login](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-15#task-3-use-flask-login)
-- [x] [Task 4: hashing passwords](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-15#task-4-hashing-passwords)
-
-## [Lab 17](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-17)
-
-- [x] [Task 0: consuming apis](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-17#step-0-consuming-apis)
-- [x] [Task 1: creating a simple json api](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-17#step-1-simple-api)
-- [x] [Task 2: using flask-restful to create an api](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-17#step-2-using-flask-restful)
-
-## [Lab 18](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-18)
-
-- [x] Task: flask-sqlalchemy
-
-## [Lab 20](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-20)
-
-- [x] [Task 1: twits_blueprint](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-20#step-1-twits_blueprint)
-- [x] [Task 2: login_blueprint](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-20#step-2-login_blueprint)
-- [x] [Task 3: extension](http://gitlab.doc.gold.ac.uk/data-networks-web/lab-exercises/wikis/lab-20#step-3-extension)

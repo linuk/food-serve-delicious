@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <h1 class="title">Sign Up</h1>
+    <div class="column is-one-third is-offset-one-third">
+        <div class="control">
+            <form method="post">
+                {{ form.csrf_token }}
+                <div class="field">
+                    {{ form.email(class='input', placeholder='email', autofocus='true') }}
+                    {% if form.email.errors %}
+                        {% for error in form.email.errors %}
+                            <p class="help">{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+
+                <div class="field">
+                    {{ form.username(class='input', placeholder='username') }}
+                    {% if form.username.errors %}
+                        {% for error in form.username.errors %}
+                            <p class="help">{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+
+                <div class="field">
+                    {{ form.password(class='input is-primary', placeholder='password') }}
+                    {% if form.password.errors %}
+                        {% for error in form.password.errors %}
+                            <p class="help">{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+
+                <div class="field">
+                    {{ form.re_password(class='input is-primary', placeholder='Enter password again') }}
+                    {% if form.re_password.errors %}
+                        {% for error in form.re_password.errors %}
+                            <p class="help">{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="field has-text-centered">
+                    {{ form.submit(value='SUBMIT',class='is-inverted is-primary is-outlined button') }}
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
